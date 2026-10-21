@@ -1,0 +1,416 @@
+/*
+  FILE: style.css
+  This is the CSS file. CSS makes the page look nice:
+  colors, text size, spacing and layout.
+
+  How to read this file:
+  - A CSS rule looks like this:   selector { property: value; }
+  - The SELECTOR says WHICH part of the page to change (example: h1).
+  - A PROPERTY is what we change (example: color).
+  - A VALUE is the new setting (example: blue).
+  - A dot before a name (.button) means "all elements with class="button"".
+  - A hash before a name (#home) means "the element with id="home"".
+  - Text between slash-star and star-slash is a COMMENT (just a note).
+*/
+
+
+/* ============ 1. COLORS (our color box) ============ */
+/* :root means the whole page. Here we save colors with names,
+   so we can use them again and again. var(--name) uses a saved color. */
+:root {
+  --bg: #f5f8f7;          /* page background (very light green-grey) */
+  --card: #ffffff;        /* background of cards and the header */
+  --text: #1b2a41;        /* main text color (dark blue) */
+  --muted: #55657a;       /* softer text color for small notes */
+  --accent: #0f766e;      /* main color for links and buttons (teal) */
+  --accent-text: #ffffff; /* text color on top of the accent color */
+  --line: #d9e2e0;        /* thin lines and borders */
+}
+
+/* Dark mode colors. JavaScript adds the class "dark" to the page
+   when the visitor clicks the dark mode button. These colors then
+   replace the colors above. */
+body.dark {
+  --bg: #0f1720;
+  --card: #18232f;
+  --text: #e8eef4;
+  --muted: #a3b1c2;
+  --accent: #5eead4;
+  --accent-text: #0f1720;
+  --line: #2a3a4a;
+}
+
+
+/* ============ 2. BASIC SETTINGS FOR THE WHOLE PAGE ============ */
+/* * means every element. box-sizing makes width easier to calculate
+   (padding and border stay inside the width we set). */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling when a menu link is clicked.
+   The "if" below skips this for people who do not like motion. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* keeps titles from hiding under the top bar */
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Style for the whole body of the page */
+body {
+  margin: 0;                                   /* remove the default space around the page */
+  font-family: "Segoe UI", Arial, sans-serif;  /* letter style for normal text */
+  font-size: 18px;
+  line-height: 1.6;                            /* space between lines, easy to read */
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Headings use a different letter style, so they stand out */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+}
+
+/* Link color */
+a {
+  color: var(--accent);
+}
+
+/* Show a clear outline when someone uses the keyboard (Tab key).
+   This helps people who cannot use a mouse. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* ============ 3. HEADER (top bar) ============ */
+.site-header {
+  position: sticky;              /* stays at the top when we scroll */
+  top: 0;
+  z-index: 10;                   /* keeps the bar above other things */
+  display: flex;                 /* puts logo, menu and button in one row */
+  align-items: center;           /* centers them up and down */
+  justify-content: space-between;/* spreads them left, middle and right */
+  flex-wrap: wrap;               /* on small screens, move to the next line */
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;         /* remove the underline */
+  color: var(--text);
+}
+
+/* The menu list */
+.menu {
+  display: flex;                 /* menu items in one row */
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;              /* remove the bullet points */
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent; /* invisible line, so nothing jumps on hover */
+}
+
+/* When the mouse is on a menu link, show a line under it */
+.menu a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* The dark mode button */
+#theme-button {
+  font-size: 15px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;            /* round corners */
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;               /* the mouse becomes a hand */
+}
+
+#theme-button:hover {
+  border-color: var(--accent);
+}
+
+
+/* ============ 4. PAGE SECTIONS ============ */
+/* Every section is centered, not too wide, with space around it. */
+main section {
+  max-width: 900px;
+  margin: 0 auto;                /* auto left and right = centered */
+  padding: 64px 24px;
+}
+
+/* Section headings (About, Skills, ...) get a short line under them */
+main section h2 {
+  font-size: 32px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;         /* makes the line only as wide as the text */
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 28px;
+}
+
+
+/* ============ 5. HOME SECTION (hero) ============ */
+.hero {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.hero h1 {
+  font-size: 56px;
+}
+
+.hero-title {
+  font-size: 22px;
+  color: var(--accent);
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  max-width: 620px;              /* short lines are easier to read */
+}
+
+/* The "Contact me" link that looks like a button */
+.button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: var(--accent-text);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+
+/* ============ 6. SKILLS ============ */
+/* Skills and websites are shown as small rounded labels in a row. */
+.skills-list,
+.platform-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li,
+.platform-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 6px 16px;
+}
+
+.platform-list a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* ============ 7. PROJECT CARDS ============ */
+/* Grid = rows and columns. This line makes as many columns as fit,
+   each at least 260px wide. On a phone it becomes one column. */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);   /* thick colored line on the left */
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.note {
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+
+/* ============ 8. CONTACT FORM ============ */
+#contact-form {
+  display: flex;
+  flex-direction: column;        /* stack the items from top to bottom */
+  gap: 8px;
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+#contact-form label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  font-family: inherit;          /* use the same letters as the page */
+  font-size: 17px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+}
+
+#contact-form button {
+  align-self: flex-start;        /* button stays on the left, not full width */
+  margin-top: 12px;
+  padding: 12px 28px;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  opacity: 0.85;
+}
+
+/* The message JavaScript shows after the form is sent */
+#form-message {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+
+/* ============ 9. FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* ============ 10. SMALL SCREENS (PHONES) ============ */
+/* These rules work only when the screen is 600px wide or less. */
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .hero h1 {
+    font-size: 40px;                 /* smaller big title on a phone */
+  }
+
+  .hero {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  main section {
+    padding: 48px 20px;
+  }
+
+  .site-header {
+    padding: 10px 16px;
+  }
+
+  .menu {
+    gap: 14px;
+  }
+}
+
+
+/* ============ 11. EXPERIENCE AND EDUCATION ============ */
+/* One job block. A thick line on the left shows that it belongs together. */
+.job {
+  border-left: 4px solid var(--accent);
+  padding-left: 18px;
+  margin-bottom: 32px;
+}
+
+.job h3 {
+  margin: 0 0 4px 0;
+  font-size: 21px;
+}
+
+/* The date line under the job title */
+.job-date {
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.job ul {
+  margin: 0 0 8px 0;
+  padding-left: 20px;
+}
+
+.job li {
+  margin-bottom: 4px;
+}
+
+/* The line that lists the tools used in the job */
+.job-tech {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Simple lists (education and certificates) */
+.plain-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.plain-list li {
+  margin-bottom: 8px;
+}
+
+/* Small headings inside the Skills section need less space on top */
+#skills h3 {
+  font-size: 19px;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
