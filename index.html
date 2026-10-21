@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+  FILE: index.html
+  This is the HTML file. HTML builds the STRUCTURE of the page
+  (headings, paragraphs, lists, buttons, forms).
+  The first line above tells the browser: "this is an HTML5 page".
+
+  How to read this file:
+  - Words inside < > are called TAGS. Example: <p> means a paragraph.
+  - Most tags have a start tag <p> and an end tag </p>.
+  - A note like this one, written inside the special comment brackets,
+    is called a COMMENT. The browser ignores comments.
+    Comments are only notes for people who read the code.
+-->
+
+<!-- <html> is the main box. lang="en" says the page is written in English. -->
+<html lang="en">
+
+<!-- <head> holds information ABOUT the page. It is not shown on the page. -->
+<head>
+  <!-- Lets the page show letters correctly (UTF-8 is a common letter set) -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page fit nicely on a phone screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- The title shown on the browser tab -->
+  <title>Syed Abdul Qadir Gilani | Data Analyst</title>
+
+  <!-- A short description of the page (Google can show this) -->
+  <meta name="description" content="Portfolio of Syed Abdul Qadir Gilani, a data analyst and Python and R developer from Pakistan.">
+
+  <!-- Connects the CSS file. CSS makes the page look nice (colors, spacing). -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- <body> holds everything that people SEE on the page. -->
+<body>
+
+  <!-- ============ HEADER: logo, menu and the dark mode button ============ -->
+  <!-- <header> is the top part of the page. -->
+  <header class="site-header">
+
+    <!-- <a> is a link. href="#home" jumps to the part of the page named "home". -->
+    <a class="logo" href="#home">Syed</a>
+
+    <!-- <nav> is the menu (a group of links to other parts of the page). -->
+    <nav>
+      <!-- <ul> is a list with bullet points. <li> is one item in the list. -->
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- A button. The id lets our JavaScript file find this button later.
+         JavaScript uses it to switch between light and dark mode. -->
+    <button id="theme-button" type="button">Dark mode</button>
+  </header>
+
+  <!-- <main> holds the main content of the page. -->
+  <main>
+
+    <!-- ============ HOME SECTION (the first thing people see) ============ -->
+    <!-- <section> is one part of the page. id="home" is its name. -->
+    <section id="home" class="hero">
+      <!-- <h1> is the biggest heading. Use only one <h1> on a page. -->
+      <h1>Hi, I'm Syed</h1>
+
+      <!-- <p> is a paragraph of text. -->
+      <p class="hero-title">Data Analyst | Python and R Developer</p>
+      <p>
+        I turn raw data into clear reports and useful decisions. I have worked
+        with clients in the USA, UK, Canada, Australia and Europe. I also help
+        with content writing, proofreading and translation.
+      </p>
+
+      <!-- This link looks like a button (the CSS file styles it).
+           It takes the visitor to the Contact section. -->
+      <a class="button" href="#contact">Contact me</a>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about">
+      <!-- <h2> is a smaller heading than <h1>. -->
+      <h2>About me</h2>
+      <p>
+        I am a data analyst and Python and R developer from Peshawar, Pakistan.
+        I work with regression and classification models, sentiment analysis
+        (NLP) and dashboards. I am a fast learner, I explain my work in a clear
+        way, and I always deliver on time.
+      </p>
+      <p>
+        Besides data work, I do content writing, proofreading, translation and
+        presentation design. I am now studying for a Master's degree in
+        Software Engineering.
+      </p>
+      <p>
+        <!-- <strong> makes the text bold. -->
+        <strong>Languages:</strong> Urdu (native), English (intermediate to
+        upper-intermediate)
+      </p>
+    </section>
+
+    <!-- ============ EXPERIENCE SECTION ============ -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <!-- <article> is one block of content. Each job is one article. -->
+      <article class="job">
+        <h3>Data Analyst and Content Specialist, Self-Employed</h3>
+        <p class="job-date">2024 to Present</p>
+        <ul>
+          <li>Delivered Python and R data analysis, sentiment analysis and dashboard projects for clients in the USA, UK, Canada, Australia and Europe.</li>
+          <li>Added content writing, proofreading, translation and presentation design to meet client needs.</li>
+          <li>Managed the full client relationship alone, from the first message to the final delivery.</li>
+        </ul>
+        <p class="job-tech">Tools: Python, R, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Excel</p>
+      </article>
+
+      <article class="job">
+        <h3>Data Analyst, GRIPCODE Solution Software House</h3>
+        <p class="job-date">Feb 2024 to Mar 2024</p>
+        <ul>
+          <li>Cleaned and organized raw data so it was ready for analysis.</li>
+          <li>Looked at the data to find patterns and trends that helped team decisions.</li>
+          <li>Made charts and summary reports so the team could decide faster.</li>
+        </ul>
+        <p class="job-tech">Tools: Python, Pandas, Excel, Matplotlib, Seaborn</p>
+      </article>
+
+      <article class="job">
+        <h3>Research Engineer, Engineering Council (Research Department)</h3>
+        <p class="job-date">Aug 2023 to Jan 2024</p>
+        <ul>
+          <li>Collected and cleaned research data from many sources to keep it correct and consistent.</li>
+          <li>Wrote technical results in plain language for people who are not technical.</li>
+        </ul>
+        <p class="job-tech">Tools: Python, Excel, Statistical Analysis</p>
+      </article>
+
+      <article class="job">
+        <h3>Software Developer, Ultra Technologies (Pvt) Ltd</h3>
+        <p class="job-date">Sep 2022 to Jul 2023</p>
+        <ul>
+          <li>Built and tested software applications, from the first requirements to delivery.</li>
+          <li>Cleaned up old code and fixed bugs to make the software faster and more reliable.</li>
+        </ul>
+        <p class="job-tech">Tools: JavaScript, HTML and CSS, Git</p>
+      </article>
+    </section>
+
+    <!-- ============ SKILLS SECTION ============ -->
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <!-- Each group has a small heading and a list. Each <li> is one skill. -->
+      <h3>Programming languages</h3>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>R</li>
+        <li>SQL</li>
+      </ul>
+
+      <h3>Data and machine learning</h3>
+      <ul class="skills-list">
+        <li>Pandas</li>
+        <li>NumPy</li>
+        <li>Scikit-learn</li>
+        <li>Matplotlib</li>
+        <li>Seaborn</li>
+        <li>Excel</li>
+        <li>Power BI</li>
+        <li>Git</li>
+      </ul>
+
+      <h3>Web basics</h3>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+
+      <h3>Other services</h3>
+      <ul class="skills-list">
+        <li>Content writing</li>
+        <li>Proofreading</li>
+        <li>Translation</li>
+        <li>Presentation design</li>
+      </ul>
+
+      <h3>Where I work</h3>
+      <p>You can find my services on these websites:</p>
+      <ul class="platform-list">
+        <!-- target="_blank" opens the link in a new tab.
+             rel="noopener" is a safety setting for links that open a new tab. -->
+        <li><a href="https://www.upwork.com/services/product/writing-translation-clear-engaging-content-written-for-your-audience-2102310763876550309" target="_blank" rel="noopener">Upwork</a></li>
+        <li><a href="https://www.fiverr.com/syed_aq1" target="_blank" rel="noopener">Fiverr</a></li>
+        <li><a href="https://kwork.com/user/syeddataanalytics" target="_blank" rel="noopener">Kwork</a></li>
+      </ul>
+    </section>
+
+    <!-- ============ PROJECTS SECTION ============ -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project-grid">
+
+        <!-- <article> is one project card. -->
+        <article class="project-card">
+          <h3>COVID-19 Data Analysis Dashboard</h3>
+          <p>An interactive dashboard that tracks global cases, recoveries and vaccinations.</p>
+        </article>
+
+        <article class="project-card">
+          <h3>Pathology Report Analyzer</h3>
+          <p>A Streamlit app that helps doctors read and organize pathology reports faster.</p>
+        </article>
+
+        <article class="project-card">
+          <h3>Plant Disease Image Classification</h3>
+          <p>An EfficientNetB3 model that finds crop diseases from images. It was trained with GPU and TPU on Kaggle.</p>
+        </article>
+
+        <article class="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>A Django website that shows my projects and skills.</p>
+        </article>
+
+      </div>
+
+      <!-- A short note under the cards. -->
+      <p class="note">This page you are reading is built with plain HTML, CSS and JavaScript.</p>
+    </section>
+
+    <!-- ============ EDUCATION SECTION ============ -->
+    <section id="education">
+      <h2>Education</h2>
+
+      <ul class="plain-list">
+        <li><strong>Master's in Software Engineering</strong> (in progress), Abasyn University, Peshawar</li>
+        <li><strong>Bachelor's in Computer Systems Engineering</strong>, University of Engineering and Technology (UET), Peshawar</li>
+        <li><strong>Intermediate</strong>, Peshawar Model Degree College</li>
+        <li><strong>Matriculation</strong>, New Fazaia School and College, Peshawar Cantt</li>
+      </ul>
+
+      <h3>Certificates</h3>
+      <ul class="plain-list">
+        <li>Get Started with Python (Coursera)</li>
+        <li>Foundations of Data Science (Coursera)</li>
+        <li>Microsoft Technology Associate (MTA): Python</li>
+      </ul>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <!-- mailto: opens the visitor's email app. -->
+      <p>Email me at <a href="mailto:syedabdulqadirgilani7860@gmail.com">syedabdulqadirgilani7860@gmail.com</a></p>
+      <p>Or fill in this form. It opens your email app with your message ready to send.</p>
+
+      <!-- <form> is a box for people to type in. The id is used by JavaScript. -->
+      <form id="contact-form">
+
+        <!-- <label> is the name of an input box. for="name" connects it to
+             the input that has id="name". -->
+        <label for="name">Your name</label>
+        <!-- <input> is a box where people type. "required" means it cannot be empty. -->
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your message</label>
+        <!-- <textarea> is a bigger box for longer text. rows="5" sets its height. -->
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send message</button>
+
+        <!-- This empty paragraph is for JavaScript.
+             JavaScript writes a short message here after you click Send. -->
+        <p id="form-message"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER (the bottom of the page) ============ -->
+  <footer>
+    <!-- &copy; shows the copyright sign. The year is filled in by JavaScript. -->
+    <p>&copy; <span id="year"></span> Syed Abdul Qadir Gilani. All rights reserved.</p>
+  </footer>
+
+  <!-- Connects the JavaScript file. JavaScript makes the page do things
+       (like the dark mode button). It is placed at the end so the page loads first. -->
+  <script src="script.js"></script>
+</body>
+</html>
